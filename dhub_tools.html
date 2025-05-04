@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHUB-Tools | Automatización Inteligente de Importaciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="shortcut icon" href="assets/images/dhub_ico_2.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+    <style>
+        :root {
+            --primary: #FF7D00;
+            --secondary: #03a4ed;
+            --terciary: #ff4400;
+            --dark: #333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--terciary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .hero-image {
+            width: 50%;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 em {
+            color: var(--primary);
+            font-style: normal;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 9px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--light);
+        }
+
+        .steps {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .steps:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+            left: 0;
+            top: 0;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 50px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .step p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .dashboard-container {
+            position: relative;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .dashboard-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .dashboard-image img {
+            width: 70%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .dashboard-features {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-feature {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dashboard-feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .dashboard-feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .dashboard-feature p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Benefits */
+        .benefits {
+            background-color: var(--light);
+        }
+
+        .benefits-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .benefits-content {
+            flex: 1;
+        }
+
+        .benefits-image {
+            flex: 1;
+        }
+
+        .benefits-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .benefit-icon {
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .benefit-text p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            margin: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 50px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Pricing */
+        .pricing {
+            background-color: var(--light);
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-plan {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-plan.featured {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .pricing-plan.featured:before {
+            content: 'Más popular';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .pricing-billing {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-button {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-button.primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .pricing-button.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-white {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .footer-newsletter p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+
+        .newsletter-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content, .hero-image {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding-top: 120px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-container {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-container {
+                flex-direction: column;
+            }
+
+            .pricing-plan.featured {
+                transform: scale(1);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <img src="assets/images/d_hub_tools_logo.png" style="height: 60px;" alt="">
+                <ul class="nav-links">
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#how-it-works">Cómo Funciona</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#benefits">Beneficios</a></li>
+                    <li><a href="#pricing">Precios</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="display: flex; margin-top: 30px;">
+            <div class="hero-content animate__animated animate__fadeInLeft">
+                <h1>Automatiza la gestión de tus <em>importaciones</em> con <span style="color: var(--secondary);">Inteligencia Artificial</span></h1>
+                <p>DHUB Tools extrae automáticamente información clave de tus correos y documentos BL, organizándola en una base de datos estructurada para que puedas visualizar y gestionar todos tus embarques en tiempo real.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="cta-button">Comenzar Ahora</a>
+                </div>
+            </div>
+            <div class="hero-image animate__animated animate__fadeInRight">
+                <div id="myLottie" style="align-items: center; bottom: 60px; position: relative;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Características Principales</h2>
+                <p>DHUB Tools automatiza todo el proceso de gestión de tus importaciones, desde la extracción de datos hasta el análisis y visualización.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate__animated animate__fadeInUp">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Extracción Automatizada</h3>
+                    <p>Nuestra IA accede a tu correo y extrae automáticamente la información clave de tus documentos BL sin intervención manual.</p>
+                </div>
+                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Base de Datos Estructurada</h3>
+                    <p>Toda la información extraída se organiza en una base de datos optimizada para consultas rápidas y análisis eficientes.</p>
+                </div>
+                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis y Gráficos</h3>
+                    <p>Visualiza tendencias e información clave de tus importaciones con gráficos interactivos y paneles personalizables.</p>
+                </div>
+                <div class="feature-card animate__animated animate__fadeInUp">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Calendario de Llegadas</h3>
+                    <p>Visualiza claramente las fechas esperadas de llegada de tus contenedores en un calendario interactivo.</p>
+                </div>
+                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Gestión de Correos</h3>
+                    <p>Responde a tus correos relacionados con importaciones directamente desde nuestra plataforma sin cambiar de aplicación.</p>
+                </div>
+                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Seguimiento en Tiempo Real</h3>
+                    <p>Monitorea el estado logístico de tus contenedores y recibe notificaciones sobre cambios importantes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo Funciona</h2>
+                <p>DHUB Tools automatiza todo el proceso de gestión de tus importaciones en 4 sencillos pasos.</p>
+            </div>
+            <div class="steps animate__animated animate__fadeIn">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Acceso al Correo</h3>
+                    <p>DHUB Tools se conecta de forma segura a tu correo electrónico después de que otorgues los permisos necesarios. No almacenamos tus credenciales y utilizamos protocolos de seguridad de nivel bancario.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Identificación de Documentos BL</h3>
+                    <p>Nuestra IA analiza automáticamente tus correos para identificar aquellos que contienen documentos de conocimiento de embarque (BL), evitando falsos positivos y garantizando precisión.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Extracción de Información</h3>
+                    <p>Utilizando algoritmos avanzados de inteligencia artificial, extraemos datos críticos como naviera, transportista, remitente, contenedores, productos, precios y fechas de entrega de cada documento BL.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Organización y Visualización</h3>
+                    <p>Toda la información extraída se almacena en una base de datos estructurada que alimenta dashboards interactivos, gráficos analíticos y un calendario de seguimiento para una gestión eficiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="dashboard" class="dashboard-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dashboard Inteligente</h2>
+                <p>Visualiza y gestiona toda tu información de importaciones en un solo lugar con nuestro panel de control intuitivo.</p>
+            </div>
+            <div class="dashboard-container animate__animated animate__fadeIn">
+                <div class="dashboard-image">
+                    <img src="assets/images/dhub_tools_dashboard.png" alt="DHUB Tools Dashboard">
+                </div>
+                <div class="dashboard-features">
+                    <div class="dashboard-feature">
+                        <div class="dashboard-feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Análisis Visual</h3>
+                        <p>Gráficos interactivos que muestran tendencias de importación, costos y volúmenes a lo largo del tiempo.</p>
+                    </div>
+                    <div class="dashboard-feature">
+                        <div class="dashboard-feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Calendario Inteligente</h3>
+                        <p>Visualiza claramente las fechas de llegada esperadas de tus contenedores y recibe alertas sobre posibles retrasos.</p>
+                    </div>
+                    <div class="dashboard-feature">
+                        <div class="dashboard-feature-icon">
+                            <i class="fas fa-inbox"></i>
+                        </div>
+                        <h3>Gestión de Correos</h3>
+                        <p>Visualiza y responde a tus correos relacionados con importaciones sin salir de la plataforma.</p>
+                    </div>
+                    <div class="dashboard-feature">
+                        <div class="dashboard-feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Archivado en la nube</h3>
+                        <p>Accede a todos tus documentos BL y correos relacionados desde cualquier lugar y en cualquier momento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beneficios</h2>
+                <p>DHUB Tools transforma la manera en que gestionas tus importaciones, proporcionándote ventajas competitivas significativas.</p>
+            </div>
+            <div class="benefits-container">
+                <div class="benefits-content animate__animated animate__fadeInLeft">
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Ahorro de Tiempo</h3>
+                                <p>Reduce hasta un 80% el tiempo dedicado a la gestión manual de documentos BL y seguimiento de embarques.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Mayor Precisión</h3>
+                                <p>Elimina errores humanos en el procesamiento de datos con nuestra tecnología de IA con una precisión superior al 99%.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Insights Accionables</h3>
+                                <p>Obtén información valiosa sobre tu historial, costos y oportunidades de mejora en para tus procesos de importación.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Seguridad Garantizada</h3>
+                                <p>Tus datos están protegidos con encriptación de nivel bancario y cumplimos con todas las normativas de protección de datos.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Actualización en Tiempo Real</h3>
+                                <p>Mantente informado sobre el estado de tus importaciones con actualizaciones instantáneas y notificaciones personalizables.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="benefits-image animate__animated animate__fadeInRight">
+                    <dotlottie-player
+                    src="https://lottie.host/a72ba151-0157-48b1-97a1-4a3c0462ad6b/qQaKOiqiru.lottie"
+                    background="transparent"
+                    speed="1"
+                    style="width: 500px; height: 500px; background-color: rgb(221, 246, 255); border-radius: 30px;"
+                    loop
+                    autoplay
+                    ></dotlottie-player>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Descubre cómo DHUB Tools ha transformado la gestión de importaciones para empresas como la tuya.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial animate__animated animate__fadeIn">
+                    <div class="testimonial-text">
+                        <p>DHUB Tools ha revolucionado nuestra forma de trabajar. Ahora podemos gestionar el triple de importaciones con la mitad del personal, manteniendo una precisión absoluta en la información.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/60/60" alt="María Rodríguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>María Rodríguez</h4>
+                            <p>Directora de Operaciones, ImportMEX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Planes y Precios</h2>
+                <p>Encuentra el plan que mejor se adapte a las necesidades de tu empresa.</p>
+            </div>
+            <div class="pricing-container">
+                <div class="pricing-plan animate__animated animate__fadeInUp">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Básico</h3>
+                        <div class="pricing-price">$299</div>
+                        <div class="pricing-billing">por mes</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Hasta 500 documentos BL/mes</li>
+                        <li><i class="fas fa-check"></i> Extracción de datos básica</li>
+                        <li><i class="fas fa-check"></i> Dashboard básico</li>
+                        <li><i class="fas fa-check"></i> Soporte por email</li>
+                        <li><i class="fas fa-times"></i> Análisis avanzado</li>
+                        <li><i class="fas fa-times"></i> API para integración</li>
+                    </ul>
+                    <a href="#" class="pricing-button secondary">Elegir Plan</a>
+                </div>
+                
+                <div class="pricing-plan featured animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Profesional</h3>
+                        <div class="pricing-price">$599</div>
+                        <div class="pricing-billing">por mes</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Hasta 2000 documentos BL/mes</li>
+                        <li><i class="fas fa-check"></i> Extracción de datos completa</li>
+                        <li><i class="fas fa-check"></i> Dashboard avanzado</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                        <li><i class="fas fa-check"></i> Análisis avanzado</li>
+                        <li><i class="fas fa-times"></i> API para integración</li>
+                    </ul>
+                    <a href="#" class="pricing-button primary">Elegir Plan</a>
+                </div>
+                
+                <div class="pricing-plan animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Enterprise</h3>
+                        <div class="pricing-price">$999</div>
+                        <div class="pricing-billing">por mes</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Documentos BL ilimitados</li>
+                        <li><i class="fas fa-check"></i> Extracción de datos completa</li>
+                        <li><i class="fas fa-check"></i> Dashboard personalizado</li>
+                        <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                        <li><i class="fas fa-check"></i> Análisis avanzado</li>
+                        <li><i class="fas fa-check"></i> API para integración</li>
+                    </ul>
+                    <a href="#" class="pricing-button secondary">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">¿Listo para revolucionar tu gestión de importaciones?</h2>
+            <p class="animate__animated animate__fadeIn">Únete a cientos de empresas que ya están optimizando sus procesos de importación con DHUB Tools.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column footer-about">
+                    <a href="#" class="footer-logo">D-HUB Tools,<span style="font-size: small;">Powered by Brokeimsa</span></a>
+                    <p>Transformamos la gestión de importaciones con inteligencia artificial, automatización y análisis avanzado.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Características</a></li>
+                        <li><a href="#how-it-works">Cómo Funciona</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#benefits">Beneficios</a></li>
+                        <li><a href="#pricing">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contáctanos</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Reforma 222, CDMX, México</li>
+                        <li><i class="fas fa-phone"></i> +52 55 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@dhubtools.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir noticias y actualizaciones de DHUB Tools.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Tu email">
+                        <button type="submit" class="newsletter-button"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DHUB Tools. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Animation on scroll
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            
+            function checkIfInView() {
+                const windowHeight = window.innerHeight;
+                const windowTopPosition = window.scrollY;
+                const windowBottomPosition = windowTopPosition + windowHeight;
+                
+                animatedElements.forEach(element => {
+                    const elementHeight = element.offsetHeight;
+                    const elementTopPosition = element.offsetTop;
+                    const elementBottomPosition = elementTopPosition + elementHeight;
+                    
+                    // Check if element is in view
+                    if (
+                        (elementBottomPosition >= windowTopPosition) &&
+                        (elementTopPosition <= windowBottomPosition)
+                    ) {
+                        // Get animation class
+                        const animationClass = Array.from(element.classList).find(cls => 
+                            cls.startsWith('animate__') && cls !== 'animate__animated'
+                        );
+                        
+                        if(animationClass && element.classList.contains('animate__animated')) {
+                            element.classList.add('animate__' + animationClass.split('__')[1]);
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkIfInView);
+            window.addEventListener('resize', checkIfInView);
+            window.addEventListener('load', checkIfInView);
+            
+            // Check immediately on load
+            checkIfInView();
+        });
+    </script>
+
+    <!--Lottie animation-->
+    <script>
+        lottie.loadAnimation({
+          container: document.getElementById('myLottie'), // div contenedor
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'assets/images/ship_animation.json' // ruta relativa al HTML
+        });
+      </script>
+
+        <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module"
+        ></script>
+</body>
+</html>
