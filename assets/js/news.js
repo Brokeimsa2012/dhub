@@ -187,7 +187,7 @@ function displayNews(articles) {
                             <p class="news-excerpt">${truncateText(article2.description, 80)}</p>
                             <a href="${article2.link}" target="_blank" class="read-more">Leer más <i class="fa fa-arrow-right"></i></a>
                         </div>
-                    </div>
+                    </div>git 
                 `;
                 rowDiv.appendChild(newsItem2);
             }

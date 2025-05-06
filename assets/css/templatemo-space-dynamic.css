@@ -283,6 +283,7 @@ header
 .header-area .main-nav .logo {
   line-height: 100px;
   color: #fff;
+  width: 230px;
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
@@ -618,6 +619,7 @@ header
   }
   .header-area .main-nav .logo {
     color: #1e1e1e;
+    width: 190px;
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
@@ -1223,7 +1225,7 @@ Blog
 }
 
 .our-blog .left-image ul li i {
-  color: #ff4d61;
+  color: #ff931e;
   font-size: 16px;
   margin-right: 8px;
 }
@@ -1261,8 +1263,9 @@ Blog
   font-weight: 300;
 }
 
+
 .our-blog .right-list .left-content span i {
-  color: #ff4d61;
+  color:  #ff931e;
   font-size: 16px;
   margin-right: 8px;
 }
@@ -1644,7 +1647,7 @@ responsive
   }
   .about-us .services .item  {
     background: rgb(255,77,30);
-    background: linear-gradient(105deg, rgba(255,77,30,1) 0%, rgba(255,44,109,1) 100%);
+    background: linear-gradient(105deg, rgba(255,147,30,1) 0%, rgba(255,102,0,1) 100%);
     padding: 30px;
     border-radius: 20px;
     display: inline-block;
@@ -1714,7 +1717,7 @@ responsive
 
 @media (max-width: 767px) {
   .about-us .left-image {
-    bottom: -280px;
+    bottom: -280px;;
   }
   .our-blog .right-list {
     margin-left: 0px;
@@ -1743,6 +1746,22 @@ responsive
   }
 
   .left-image img{
+    display: none;
+  }
+
+  .left-image dotlottie-player {
+    margin-top: -500px;
+    height: 500px !important;
+    width: 500px !important;
+    position: relative;
+    transform: translateX(15%);
+  }
+
+  .service-cards {
+    gap: 50px;
+  }
+
+  .card-back img{
     display: none;
   }
 }
