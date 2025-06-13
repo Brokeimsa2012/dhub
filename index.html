@@ -32,8 +32,56 @@ https://templatemo.com/tm-562-space-dynamic
 
 -->
   </head>
+  <style>
+    .coming-soon-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ff6600, #ff9933);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+      }
+
+      .coming-soon-message {
+        text-align: center;
+        color: white;
+        font-size: 4rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .coming-soon-message {
+          font-size: 2.5rem;
+        }
+      }
+  </style>
 
 <body>
+    <!-- Coming Soon Overlay -->
+  <div class="coming-soon-overlay">
+    <div class="coming-soon-message">
+      Coming Soon... Very Soon
+    </div>
+  </div>
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
