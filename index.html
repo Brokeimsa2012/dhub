@@ -73,15 +73,33 @@ https://templatemo.com/tm-562-space-dynamic
           font-size: 2.5rem;
         }
       }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 20px; /* Espaciado entre las noticias */
+      }
+      
+      .news-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .news-image {
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
   </style>
 
 <body>
-    <!-- Coming Soon Overlay -->
-  <div class="coming-soon-overlay">
-    <div class="coming-soon-message">
-      Coming Soon... Very Soon
-    </div>
-  </div>
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -136,7 +154,7 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h6>Transforma tu negocio con <span>D-HUB </span></h6>
-                <h2>Automatiza la <em>gestión de tus embarques</em> &amp; crea tu <span>presencia digital</span> con nuestras soluciones integradas</h2>
+                <h2>Automatiza tus <em>embarques</em> &amp; crea tu <span>presencia digital</span></h2>
                 <p>D-HUB es la plataforma todo-en-uno para la automatización logística y la creación de páginas web personalizadas. Ya sea que busques optimizar la gestión de tus BL o tener tu presencia digital sin complicaciones, D-HUB tiene la solución para ti.</p>
                 <div class="buttons-container">
                   <a href="dhub_pages.html" class="glow-button">
@@ -394,11 +412,14 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- El contenido del artículo destacado se cargará dinámicamente aquí -->
           </div>
         </div>
-        
+  
         <!-- Noticias secundarias - en formato de cuadrícula -->
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
           <div class="news-grid">
-            <!-- Las noticias secundarias se cargarán dinámicamente aquí en formato cuadrícula -->
+            <div class="news-item">Noticia 1</div>
+            <div class="news-item">Noticia 2</div>
+            <div class="news-item">Noticia 3</div>
+            <div class="news-item">Noticia 4</div>
           </div>
         </div>
       </div>
