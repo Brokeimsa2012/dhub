@@ -120,13 +120,34 @@
             align-items: center;
         }
 
+        .hero .container {
+            display: flex;
+            width: 100%;
+            gap: 40px;
+            align-items: center;
+        }
+
         .hero-content {
-            width: 50%;
-            padding-right: 40px;
+            flex: 1;
+            min-width: 0;
         }
 
         .hero-image {
-            width: 50%;
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+        }
+
+        .hero-image #myLottie {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            aspect-ratio: 1;
+            align-items: center;
+            bottom: 0;
             position: relative;
         }
 
@@ -799,14 +820,28 @@
 
         /* Responsive */
         @media (max-width: 992px) {
+            .hero .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
             .hero-content, .hero-image {
+                flex: 1;
                 width: 100%;
                 padding-right: 0;
             }
 
             .hero {
-                flex-direction: column;
                 padding-top: 120px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-image #myLottie {
+                max-width: 400px;
             }
 
             .features-grid {
@@ -825,10 +860,6 @@
         @media (max-width: 768px) {
             .navbar {
                 position: relative;
-            }
-
-            .hero-image dotlottie-player{
-                display: none;
             }
 
             .hamburger {
@@ -856,13 +887,35 @@
                 margin: 10px 0;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-image #myLottie {
+                max-width: 300px;
+                height: 300px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button,
+            .secondary-button {
+                width: 100%;
             }
 
             .benefits-image dotlottie-player {
-                height: 300px !important; /* increased size and added !important */
-                width: 300px !important;
+                width: 400px !important;
+                height: 400px !important;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
             .pricing-container {
@@ -875,6 +928,37 @@
 
             .footer-container {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero-image #myLottie {
+                max-width: 250px;
+                height: 250px;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 20px;
             }
         }
 
@@ -896,7 +980,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <img src="assets/images/d_hub_pages_logo.png" style="height: 60px;" alt="">
+                <img src="assets/images/d_hub_tools_logo.png" style="height: 60px;" alt="">
                 <ul class="nav-links">
                     <li><a href="#features">Características</a></li>
                     <li><a href="#how-it-works">Cómo Funciona</a></li>
@@ -913,260 +997,241 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container" style="display: flex; margin-top: 80px;">
+        <div class="container" style="margin-top: 30px;">
             <div class="hero-content animate__animated animate__fadeInLeft">
-                <h1>Crea páginas web para tus <em>productos</em> en minutos con <span style="color: var(--secondary);">Inteligencia Artificial</span></h1>
-                <p>D-HUB Pages te permite construir sitios web personalizados para tu empresa directamente desde tus datos de importación. Promociona tus productos, catálogos y marcas sin necesidad de desarrolladores ni costos extra.</p>
+                <h1>Automatiza la gestión de tus <em>importaciones</em> con <span style="color: var(--secondary);">Inteligencia Artificial</span></h1>
+                <p>DHUB Tools extrae automáticamente información clave de tus correos y documentos BL, organizándola en una base de datos estructurada para que puedas visualizar y gestionar todos tus embarques en tiempo real.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="cta-button">Explorar D-HUB Pages</a>
+                    <a href="https://app.dhub.do" class="cta-button">Comenzar Ahora</a>
                 </div>
             </div>
             <div class="hero-image animate__animated animate__fadeInRight">
-                <dotlottie-player
-                    src="https://lottie.host/008d4892-3ff6-419f-9c5d-fd4141766253/SmFR9z1TVY.lottie"
-                    background="transparent"
-                    speed="1"
-                    style="width: 600px; height: 600px"
-                    loop
-                    autoplay
-                    ></dotlottie-player>
+                <div id="myLottie"></div>
             </div>
         </div>
     </section>
-
 
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
                 <h2>Características Principales</h2>
-                <p>D-HUB Pages transforma tus datos de importación en páginas web atractivas y funcionales, sin necesidad de conocimientos técnicos.</p>
+                <p>DHUB Tools automatiza todo el proceso de gestión de tus importaciones, desde la extracción de datos hasta el análisis y visualización.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card animate__animated animate__fadeInUp">
                     <div class="feature-icon">
-                        <i class="fas fa-magic"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Generación Automática</h3>
-                    <p>Nuestra IA crea páginas web profesionales a partir de los productos y documentos que ya manejas en tus procesos de importación.</p>
+                    <h3>Extracción Automatizada</h3>
+                    <p>Nuestra IA accede a tu correo y extrae automáticamente la información clave de tus documentos BL sin intervención manual.</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                     <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+                        <i class="fas fa-database"></i>
                     </div>
-                    <h3>Diseño Personalizable</h3>
-                    <p>Elige entre múltiples plantillas y personaliza textos, colores y estructuras para que tu página refleje tu identidad empresarial.</p>
+                    <h3>Base de Datos Estructurada</h3>
+                    <p>Toda la información extraída se organiza en una base de datos optimizada para consultas rápidas y análisis eficientes.</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
                     <div class="feature-icon">
-                        <i class="fas fa-store"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Catálogo de Productos</h3>
-                    <p>Organiza y presenta tus productos importados en un catálogo visual y navegable, listo para compartir con clientes o socios.</p>
+                    <h3>Análisis y Gráficos</h3>
+                    <p>Visualiza tendencias e información clave de tus importaciones con gráficos interactivos y paneles personalizables.</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp">
                     <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3>Publicación Instantánea</h3>
-                    <p>Tu página está lista para ser publicada con un solo clic y disponible en línea sin procesos complicados.</p>
+                    <h3>Calendario de Llegadas</h3>
+                    <p>Visualiza claramente las fechas esperadas de llegada de tus contenedores en un calendario interactivo.</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <h3>Estadísticas Integradas</h3>
-                    <p>Visualiza cuántos usuarios visitan tus páginas, qué productos ven más y qué secciones generan mayor interés.</p>
+                    <h3>Gestión de Correos</h3>
+                    <p>Responde a tus correos relacionados con importaciones directamente desde nuestra plataforma sin cambiar de aplicación.</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
                     <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-ship"></i>
                     </div>
-                    <h3>Multiples Usuarios</h3>
-                    <p>Permite que diferentes departamentos o empleados gestionen contenidos específicos dentro de sus respectivas páginas.</p>
+                    <h3>Seguimiento en Tiempo Real</h3>
+                    <p>Monitorea el estado logístico de tus contenedores y recibe notificaciones sobre cambios importantes.</p>
                 </div>
             </div>
         </div>
     </section>
-    
 
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
-    <div class="container">
-        <div class="section-header">
-            <h2>Cómo Funciona</h2>
-            <p>Con D-HUB Pages puedes crear una página web profesional en minutos, ya sea conectando tus datos existentes o empezando desde cero.</p>
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo Funciona</h2>
+                <p>DHUB Tools automatiza todo el proceso de gestión de tus importaciones en 4 sencillos pasos.</p>
+            </div>
+            <div class="steps animate__animated animate__fadeIn">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Acceso al Correo</h3>
+                    <p>DHUB Tools se conecta de forma segura a tu correo electrónico después de que otorgues los permisos necesarios. No almacenamos tus credenciales y utilizamos protocolos de seguridad de nivel bancario.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Identificación de Documentos BL</h3>
+                    <p>Nuestra IA analiza automáticamente tus correos para identificar aquellos que contienen documentos de conocimiento de embarque (BL), evitando falsos positivos y garantizando precisión.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Extracción de Información</h3>
+                    <p>Utilizando algoritmos avanzados de inteligencia artificial, extraemos datos críticos como naviera, transportista, remitente, contenedores, productos, precios y fechas de entrega de cada documento BL.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Organización y Visualización</h3>
+                    <p>Toda la información extraída se almacena en una base de datos estructurada que alimenta dashboards interactivos, gráficos analíticos y un calendario de seguimiento para una gestión eficiente.</p>
+                </div>
+            </div>
         </div>
-        <div class="steps animate__animated animate__fadeIn">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Elige tu Método de Creación</h3>
-                <p>Puedes importar automáticamente productos desde tu cuenta de D-HUB Tools o iniciar tu página desde cero agregando la información manualmente.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Configura tu Catálogo</h3>
-                <p>Selecciona qué productos deseas mostrar. Filtra, clasifica y organiza tu catálogo como desees, o crea uno nuevo fácilmente.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Personaliza tu Diseño</h3>
-                <p>Elige una plantilla, ajusta colores, textos, secciones y añade tu logo. Todo sin necesidad de conocimientos técnicos.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Publica y Comparte</h3>
-                <p>Con un solo clic, tu página está en línea. Comparte el enlace con tus clientes, colócalo en tus redes o intégralo en tu firma de correo.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Dashboard Preview -->
     <section id="dashboard" class="dashboard-preview">
         <div class="container">
             <div class="section-header">
-                <h2>Panel de Administración</h2>
-                <p>Gestiona el contenido, el diseño y la visibilidad de tu página web desde un panel intuitivo y centralizado.</p>
+                <h2>Dashboard Inteligente</h2>
+                <p>Visualiza y gestiona toda tu información de importaciones en un solo lugar con nuestro panel de control intuitivo.</p>
             </div>
             <div class="dashboard-container animate__animated animate__fadeIn">
-                <div class="dashboard-image" style="display: flex;">
-                    <dotlottie-player
-                    src="https://lottie.host/c33f96e5-5af3-4ebb-b261-1fa14b59db35/HYT5WaJFLU.lottie"
-                    background="transparent"
-                    speed="1"
-                    style="width: 700px; height: 700px; background-color: rgb(221, 246, 255); border-radius: 30px;"
-                    loop
-                    autoplay
-                    ></dotlottie-player>
+                <div class="dashboard-image">
+                    <img src="assets/images/dhub_tools_dashboard.png" alt="DHUB Tools Dashboard">
                 </div>
                 <div class="dashboard-features">
                     <div class="dashboard-feature">
                         <div class="dashboard-feature-icon">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-chart-pie"></i>
                         </div>
-                        <h3>Gestión de Catálogo</h3>
-                        <p>Añade, edita o elimina productos fácilmente. Controla qué información se muestra y en qué orden aparece.</p>
+                        <h3>Análisis Visual</h3>
+                        <p>Gráficos interactivos que muestran tendencias de importación, costos y volúmenes a lo largo del tiempo.</p>
                     </div>
                     <div class="dashboard-feature">
                         <div class="dashboard-feature-icon">
-                            <i class="fas fa-paint-brush"></i>
+                            <i class="fas fa-calendar-check"></i>
                         </div>
-                        <h3>Diseño Personalizado</h3>
-                        <p>Adapta los colores, tipografías, secciones y estructura de tu página sin necesidad de saber programar.</p>
+                        <h3>Calendario Inteligente</h3>
+                        <p>Visualiza claramente las fechas de llegada esperadas de tus contenedores y recibe alertas sobre posibles retrasos.</p>
                     </div>
                     <div class="dashboard-feature">
                         <div class="dashboard-feature-icon">
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-inbox"></i>
                         </div>
-                        <h3>Vista Previa en Tiempo Real</h3>
-                        <p>Visualiza cómo se verá tu página mientras haces cambios, para que siempre tengas el control del resultado final.</p>
+                        <h3>Gestión de Correos</h3>
+                        <p>Visualiza y responde a tus correos relacionados con importaciones sin salir de la plataforma.</p>
                     </div>
                     <div class="dashboard-feature">
                         <div class="dashboard-feature-icon">
-                            <i class="fas fa-share-alt"></i>
+                            <i class="fas fa-cloud"></i>
                         </div>
-                        <h3>Control de Visibilidad</h3>
-                        <p>Publica tu sitio en segundos, obtén un enlace personalizado y decide si quieres que sea público o solo accesible con contraseña.</p>
+                        <h3>Archivado en la nube</h3>
+                        <p>Accede a todos tus documentos BL y correos relacionados desde cualquier lugar y en cualquier momento.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
 
     <!-- Benefits Section -->
-<section id="benefits" class="benefits">
-    <div class="container">
-        <div class="section-header">
-            <h2>Beneficios</h2>
-            <p>D-HUB Pages te permite construir y mantener una presencia digital profesional de forma rápida, segura y sin necesidad de desarrolladores.</p>
-        </div>
-        <div class="benefits-container">
-            <div class="benefits-content animate__animated animate__fadeInLeft">
-                <ul class="benefits-list">
-                    <li class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-stopwatch"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Lanzamiento en Minutos</h3>
-                            <p>Crea tu página web en tiempo récord usando nuestras plantillas prediseñadas y herramientas intuitivas.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Diseño Responsivo</h3>
-                            <p>Tu sitio luce perfecto en computadoras, tablets y celulares sin esfuerzo adicional.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Impulso Comercial</h3>
-                            <p>Promociona tus productos, comparte catálogos y mejora tu imagen digital para captar nuevos clientes.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Privacidad y Seguridad</h3>
-                            <p>Tus datos y catálogos están protegidos mediante cifrado avanzado y opciones de acceso privado.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-pencil-ruler"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Edición Flexible</h3>
-                            <p>Modifica tu sitio cuando quieras, sin costos adicionales ni dependencia de terceros.</p>
-                        </div>
-                    </li>
-                </ul>
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beneficios</h2>
+                <p>DHUB Tools transforma la manera en que gestionas tus importaciones, proporcionándote ventajas competitivas significativas.</p>
             </div>
-            <div class="benefits-image animate__animated animate__fadeInRight">
-                <dotlottie-player
-                src="https://lottie.host/65fda28c-7960-48a3-9a04-0197872b7793/u1hI9mcSnf.lottie"
-                background="transparent"
-                speed="1"
-                style="width: 700px; height: 700px"
-                loop
-                autoplay
-                ></dotlottie-player>
+            <div class="benefits-container">
+                <div class="benefits-content animate__animated animate__fadeInLeft">
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Ahorro de Tiempo</h3>
+                                <p>Reduce hasta un 80% el tiempo dedicado a la gestión manual de documentos BL y seguimiento de embarques.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Mayor Precisión</h3>
+                                <p>Elimina errores humanos en el procesamiento de datos con nuestra tecnología de IA con una precisión superior al 99%.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Insights Accionables</h3>
+                                <p>Obtén información valiosa sobre tu historial, costos y oportunidades de mejora en para tus procesos de importación.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Seguridad Garantizada</h3>
+                                <p>Tus datos están protegidos con encriptación de nivel bancario y cumplimos con todas las normativas de protección de datos.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Actualización en Tiempo Real</h3>
+                                <p>Mantente informado sobre el estado de tus importaciones con actualizaciones instantáneas y notificaciones personalizables.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="benefits-image animate__animated animate__fadeInRight">
+                    <dotlottie-player
+                    src="https://lottie.host/a72ba151-0157-48b1-97a1-4a3c0462ad6b/qQaKOiqiru.lottie"
+                    background="transparent"
+                    speed="1"
+                    style="width: 500px; height: 500px; background-color: rgb(221, 246, 255); border-radius: 30px;"
+                    loop
+                    autoplay
+                    ></dotlottie-player>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>¿Cuál es nuestra misión con D-HUB?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae suscipit sapien, ut finibus nibh.</p>
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Descubre cómo DHUB Tools ha transformado la gestión de importaciones para empresas como la tuya.</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial animate__animated animate__fadeIn">
                     <div class="testimonial-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae justo nec sem pulvinar commodo. Quisque a neque in nulla tempus fermentum.</p>
+                        <p>DHUB Tools ha revolucionado nuestra forma de trabajar. Ahora podemos gestionar el triple de importaciones con la mitad del personal, manteniendo una precisión absoluta en la información.</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="/api/placeholder/60/60" alt="Juan Carlos R.">
+                            <img src="/api/placeholder/60/60" alt="María Rodríguez">
                         </div>
                         <div class="author-info">
-                            <h4>Juan Carlos R.</h4>
-                            <p>CEO de Brokeimsa S.R.L.</p>
+                            <h4>María Rodríguez</h4>
+                            <p>Directora de Operaciones, ImportMEX</p>
                         </div>
                     </div>
                 </div>
@@ -1373,15 +1438,10 @@
           path: 'assets/images/ship_animation.json' // ruta relativa al HTML
         });
       </script>
-    
-    <script
-    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-    type="module"
-    ></script>
 
-    <script
-    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-    type="module"
-    ></script>
+        <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module"
+        ></script>
 </body>
 </html>

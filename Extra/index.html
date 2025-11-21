@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>D-HUB - Powered by Brokeimsa</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="shortcut icon" href="assets/images/dhub_ico_2.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<!--
+    
+TemplateMo 562 Space Dynamic
+
+https://templatemo.com/tm-562-space-dynamic
+
+-->
+  </head>
+  <style>
+    .coming-soon-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ff6600, #ff9933);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+      }
+
+      .coming-soon-message {
+        text-align: center;
+        color: white;
+        font-size: 4rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .coming-soon-message {
+          font-size: 2.5rem;
+        }
+      }
+  </style>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h4><img src="assets/images/d_hub_logo.png" style="height: 110px;" alt=""></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">Sobre nosotros</a></li>
+              <li class="scroll-to-section"><a href="#services">Servicios</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Portafolio</a></li>
+              <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+              <li class="scroll-to-section"><a href="#contact">Contáctanos</a></li> 
+              <li class="scroll-to-section"></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h6>Transforma tu negocio con <span>D-HUB </span></h6>
+                <h2>Automatiza tus <em>embarques</em> &amp; crea tu <span>presencia digital</span></h2>
+                <p>D-HUB es la plataforma todo-en-uno para la automatización logística y la creación de páginas web personalizadas. Ya sea que busques optimizar la gestión de tus BL o tener tu presencia digital sin complicaciones, D-HUB tiene la solución para ti.</p>
+                <div class="buttons-container">
+                  <a href="dhub_pages.html" class="glow-button">
+                    <span>Explora D-HUB Pages</span>
+                  </a>
+                  <a href="dhub_tools.html" class="glow-button">
+                    <span>Explora D-HUB Tools</span>
+                  </a>
+                </div>
+
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/banner-right-image.png" alt="team meeting">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <img src="assets/images/about-left-image.png" style="top: -70px; position: relative;" alt="person graphic">
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="services">
+            <!-- Título destacado -->
+            <div class="section-heading mb-4">
+              <h2 class="wow fadeIn text-white" data-wow-duration="1s" data-wow-delay="0.3s">Lo que ofrecemos</h2>
+            </div>
+            <div class="row">
+  
+              <!-- D-HUB Tools -->
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <div class="icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                  </div>
+                  <div class="right-text">
+                    <h4>Data desde tu correo</h4>
+                    <p>Extraemos datos clave de tus BL de forma automática.</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                  <div class="icon">
+                    <i class="fas fa-shipping-fast"></i>
+                  </div>
+                  <div class="right-text">
+                    <h4>Seguimiento logístico</h4>
+                    <p>Visualiza contenedores y reportes desde una sola vista.</p>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- D-HUB Pages -->
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                  <div class="icon">
+                    <i class="fas fa-store"></i>
+                  </div>
+                  <div class="right-text">
+                    <h4>Páginas listas para vender</h4>
+                    <p>Crea tu web para mostrar productos sin complicaciones.</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
+                  <div class="icon">
+                    <i class="fas fa-bullhorn"></i>
+                  </div>
+                  <div class="right-text">
+                    <h4>Visibilidad inmediata</h4>
+                    <p>Conecta con nuevos clientes dentro del ecosistema D-HUB.</p>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+            <p class="mt-4 text-white" style="margin-left: 280px;">
+              <strong>D-HUB</strong> es una plataforma desarrollada por <strong>Brokeimsa</strong> que impulsa la digitalización del comercio internacional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div id="services" class="our-services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="left-image">
+            <div class="lottie-glow"></div>
+            <!-- Nuevo reproductor DotLottie -->
+            <dotlottie-player
+              src="https://lottie.host/e3e660e8-52fa-4ebb-9a04-fd240fb055fd/Yw35CnvYdz.json"
+              background="transparent"
+              speed="1"
+              style="height: auto; width: 800px; position: relative; z-index: 2; left: -110px; filter: hue-rotate(120deg);"
+              class="pulse-effect"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="section-heading">
+            <h2>Optimiza tus procesos de <em>importación</em> &amp; <span>tracking</span> con nosotros</h2>
+            <p>Nuestras plataformas te permite automatizar y gestionar eficientemente todos tus procesos de importación. Nuestros servicios están diseñados para adaptarse a tus necesidades específicas, brindándote la flexibilidad y el control que necesitas.</p>
+          </div>
+          
+          <div class="service-cards">
+            <!-- Tarjeta para D-HUB Tools -->
+            <div class="service-card" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="service-icon">
+                    <i class="fa fa-box"></i>
+                  </div>
+                  <h4>D-HUB Tools</h4>
+                </div>
+                <div class="card-back">
+                  <img src="assets/images/d_hub_tools_logo.png" style="width: 40%;" alt="">
+                  <p>Plataforma automatizada para importadores que desean tener control total sobre sus embarques y documentos. Extrae datos clave desde correos y archivos BL usando inteligencia artificial, los organiza en una base de datos estructurada, y permite visualizar el estado logístico en tiempo real.</p>
+                    <a href="dhub_tools.html">Explora D-HUB Tools</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tarjeta para D-HUB Pages -->
+            <div class="service-card" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="service-icon">
+                    <i class="fa fa-globe"></i>
+                  </div>
+                  <h4>D-HUB Pages</h4>
+                </div>
+                <div class="card-back">
+                  <img src="assets/images/d_hub_pages_logo.png" style="width: 40%;" alt="">
+                  <p>Permite a empresas crear fácilmente páginas web dentro del ecosistema D-HUB para mostrar y vender sus productos sin necesidad de conocimientos técnicos. Ofrece visibilidad inmediata, plantillas listas para usar y una conexión directa con importadores y empresas del comercio internacional.</p>
+                  <a href="dhub_pages.html">Explora D-HUB Pages</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2>Explora Nuestras <em>Funcionalidades</em> &amp; <span>Capacidades</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+  
+        <!-- Organización Inteligente -->
+        <div class="col-lg-3 col-sm-6">
+          <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="hidden-content">
+              <h4>Organización Inteligente</h4>
+              <p>Clasifica y estructura tu información o catálogo de manera automática.</p>
+            </div>
+            <div class="showed-content d-flex justify-content-center align-items-center" style="height: 120px;">
+              <i class="fas fa-layer-group gradient-icon"></i>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Notificaciones y Seguimiento -->
+        <div class="col-lg-3 col-sm-6">
+          <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+            <div class="hidden-content">
+              <h4>Notificaciones Relevantes</h4>
+              <p>Mantente al tanto de eventos clave en tu operación o ventas.</p>
+            </div>
+            <div class="showed-content d-flex justify-content-center align-items-center" style="height: 120px;">
+              <i class="fas fa-bell gradient-icon"></i>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Automatización Inteligente -->
+        <div class="col-lg-3 col-sm-6">
+          <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="hidden-content">
+              <h4>Procesos Automatizados</h4>
+              <p>Minimiza tareas manuales gracias a flujos automáticos con IA.</p>
+            </div>
+            <div class="showed-content d-flex justify-content-center align-items-center" style="height: 120px;">
+              <i class="fas fa-bolt gradient-icon"></i>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Panel de Control -->
+        <div class="col-lg-3 col-sm-6">
+          <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+            <div class="hidden-content">
+              <h4>Control Total</h4>
+              <p>Visualiza métricas, documentos o productos desde un mismo lugar.</p>
+            </div>
+            <div class="showed-content d-flex justify-content-center align-items-center" style="height: 120px;">
+              <i class="fas fa-sliders-h gradient-icon"></i>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+
+  <div id="blog" class="our-blog section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Últimas <em>Noticias</em> Sobre <span>Importaciones</span></h2>
+            <div id="refresh-button"></div> <!-- Botón de actualización -->
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="top-dec">
+            <img src="assets/images/blog-dec.png" alt="">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Contenedor de noticias restructurado -->
+      <div class="row">
+        <!-- Noticia destacada - con diseño llamativo -->
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="news-image">
+            <!-- El contenido del artículo destacado se cargará dinámicamente aquí -->
+          </div>
+        </div>
+        
+        <!-- Noticias secundarias - en formato de cuadrícula -->
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="news-grid">
+            <!-- Las noticias secundarias se cargarán dinámicamente aquí en formato cuadrícula -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Incluye el archivo JavaScript para cargar las noticias dinámicamente -->
+<script src="assets/js/news.js"></script>
+
+<div id="contact" class="contact-us section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+        <div class="section-heading">
+          <h2>Contáctanos para conocer más sobre nuestras soluciones</h2>
+          <p>Estamos aquí para ayudarte a optimizar tus procesos de importación y gestión de datos.</p>
+          <div class="phone-info mt-4">
+            <h4><i class="fa fa-phone me-2"></i>+1 829-518-5911</h4>
+            <p class="mt-2">Nuestro equipo está disponible para atenderte</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-7 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+        <div class="form-container position-relative">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeU9t1OOaKD6fjUT7DmwYU_IPqVStdheOb-ELEv7LMPecus4g/viewform?embedded=true" 
+            width="100%" 
+            height="550" 
+            frameborder="0"
+            style="border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: scroll;">
+            Cargando formulario...
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>© Copyright Brokeimsa 2025. Todos los derechos reservados. 
+          
+          <br>Diseño hecho por: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/templatemo-custom.js"></script>
+
+  <!--Script for cards at services-->
+  <script>
+    // Script para manejar el efecto de las tarjetas en dispositivos táctiles
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.service-card');
+      
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('active');
+        });
+      });
+    });
+    </script>
+  <!--Script de reproducto Online de animacion .lottie-->
+  <script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
+
+</body>
+</html>
